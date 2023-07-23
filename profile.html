@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Task-1</title>
+    <style>
+        .body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            line-height: 1.5em;
+        }
+
+        img {
+            box-shadow: 0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+            border-radius: 50% !important;
+            height: 145px;
+            width: 145px;
+            margin-left: 80px;
+        }
+
+        .inputs {
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .inputs2 {
+            position: relative;
+        }
+
+        .inputs2>input:focus+label {
+            transform: translateY(-27px);
+            font-size: smaller;
+        }
+
+        input {
+            /* position: relative; */
+            border: none;
+            padding: 8px;
+            border-bottom: 2px solid rgb(187, 178, 178);
+            outline: none;
+            margin: 10px;
+            width: 289px;
+        }
+
+        button {
+            background-color: grey;
+            border: none;
+            width: 100px;
+            height: 50px;
+            border-radius: 2px;
+            color: white;
+        }
+
+        /* input#inp2{
+            display: flex;
+        } */
+        input:focus {
+            border-bottom: 2px solid rgb(171, 69, 212);
+        }
+
+        .inputs label {
+            position: absolute;
+
+            left: 15px;
+            top: 11px;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: grey;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: transparent;
+        }
+
+        li {
+            float: left;
+            color: black;
+        }
+
+        li a {
+            display: inline-block;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul .hov li a:hover {
+            color: #a44bc9;
+
+        }
+
+        .tabpill {
+            overflow: hidden;
+
+            background-color: transparent;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            gap: 18px;
+
+        }
+
+        /* Style the buttons inside the tab */
+        .tabpill button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 20px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+            color: black;
+            height: 93px;
+        }
+
+
+
+        /* Create an active/current tablink class */
+        .tabpill button.active {
+            background-color: #b52bc6;
+            box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(237, 66, 226, 0.2);
+            border-radius: 9px;
+            color: white;
+        }
+
+        /* Style the tab content */
+        .tabpillcontent {
+            display: none;
+            padding: 6px 12px;
+
+            border-radius: 5px;
+            background-color: white;
+            margin: auto;
+            width: fit-content;
+
+
+
+        }
+    </style>
+
+</head>
+
+<body style="margin:0;padding:0">
+
+    <!-- HEADER -->
+    <div style="background: url(https://demos.creative-tim.com/nextjs-material-kit/img/profile-bg.jpg);height: 39vh;padding: 0;
+   overflow: hidden;
+   position: relative;
+   
+   max-height: 1000px;
+   
+   background-size: cover;
+   background-position: center top;
+   border: 0;
+   margin: 0;
+   transform: translate3d(0px, 0px, 0px);">
+        <header style="padding-top: 20px;">
+            <div style="display: flex;flex-direction: row;justify-content: center;column-gap: 400px;">
+                <div style="color: inherit;
+            padding: 8px 16px;
+            font-size: 18px;
+            font-family:  Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            line-height: 30px;
+            border-radius: 3px;
+            letter-spacing: unset;
+            text-transform: none;
+            color: white;">NextJS Material Kit</div>
+                <div style="display: flex;flex-direction: row;">
+                    <div class="dropdown">
+                        <button class="dropbtn" style="    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 20px;">COMPONENTS</button>
+                        <div class="dropdown-content">
+                            <a href="#">All components</a>
+                            <a href="#">Documentation</a>
+                        </div>
+                    </div>
+                    <button class="dropbtn" style="color: white;
+                padding: 8px 16px;
+                font-size: 18px;
+                font-family:  Roboto, Helvetica, Arial, sans-serif;font-size: 12px;
+                font-weight: 400;
+                line-height: 20px;border-radius: 3px;
+                letter-spacing: unset;
+                text-transform: none;
+                width:145px">UPGRADE TO PRO</button>
+                    <button class="dropbtn" style="color: white;
+                padding: 8px 16px;
+                font-size: 18px;
+                font-family:  Roboto, Helvetica, Arial, sans-serif;font-size: 12px;
+                font-weight: 400;
+                line-height: 20px;border-radius: 3px;
+                letter-spacing: unset;
+                text-transform: none;">DOWNLOAD</button>
+                    <button class="fa-brands fa-twitter" style="background-color: transparent;outline: none; border-color: transparent;color: white;
+                            margin-left: -29px;"></button>
+                    <button class="fa-brands fa-facebook" style="background-color: transparent;outline: none; border-color: transparent;color: white;
+                            margin-left: -55px;"></button>
+                    <button class="fa-brands fa-instagram" style="background-color: transparent;outline: none; border-color: transparent;color: white;
+                            margin-left: -55px;"></button>
+                </div>
+            </div>
+        </header>
+
+    </div>
+
+    <!-- BASIC ELEMENTS -->
+    <div style="margin: -60px 30px 0px;
+   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+   border-radius: 6px;    z-index: 3;
+    position: relative;">
+        <div style="background-color: white;padding: 39px;
+    border-radius: 6px;">
+            <div style="display: flex; justify-content: center;flex-direction: column;align-items: center;">
+                <div style="margin-top: -122px;">
+                    <img src="https://demos.creative-tim.com/nextjs-material-kit/img/faces/christian.jpg" alt=""
+                        style="margin-left: 251px;">
+                    <h3 style="text-align: center;font-weight: bold;font-size: 1.5625rem;
+            line-height: 1.4em;
+        ">Christian Louboutin
+                    </h3>
+                    <h4 style="text-align: center;">Designer</h4>
+                    <div style="display: flex;justify-content: center; gap: 30px;margin-top: 10px;">
+                        <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                        <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                    </div>
+                    <p style="text-align: center;    color: #999;">An artist of considerable range, Chet Faker — the
+                        name taken by Melbourne-raised, Brooklyn-based <br> Nick Murphy — writes, performs and records
+                        all of his own music, giving it a warm, intimate feel <br> with a solid groove structure..</p>
+                </div>
+
+
+            </div>
+            <div style="margin-left: -39px;margin-right: -39px;">
+                <div style="display:flex;flex-direction: row;    padding-left: -16px;
+        column-gap: 33px;
+        justify-content: center;">
+                    <div style="display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 50px;
+        gap: 17px;">
+                        <div style="width:655px">
+
+                            <div style="display:flex;justify-content:center">
+
+                                <div class="tabpill">
+                                    <div style="display: flex;
+flex-direction: column;
+align-items: center;
+row-gap: 10px;">
+
+
+                                        <button class="tabpilllinks" onclick="openCitypill(event, 'dashboard')" style="    display: flex;
+flex-direction: column;
+row-gap: 10px;
+align-items: center;"> <i class="fa fa-camera" aria-hidden="true"></i>
+                                            </i> STUDIO
+                                        </button>
+                                    </div>
+                                    <div style="display: flex;
+flex-direction: column;
+align-items: center;
+row-gap: 10px;">
+
+                                        <button class="tabpilllinks" onclick="openCitypill(event, 'schedule')" style="    display: flex;
+flex-direction: column;
+row-gap: 10px;
+align-items: center;"><i class="fa-solid fa-palette"></i> WORK</button>
+                                    </div>
+                                    <div style="display: flex;
+flex-direction: column;
+align-items: center;
+row-gap: 10px;">
+
+                                        <button class="tabpilllinks" onclick="openCitypill(event, 'tasks')" style="    display: flex;
+flex-direction: column;
+row-gap: 10px;
+align-items: center;"><i class="fa-solid fa-heart"></i>FAVOURITE</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="dashboard" class="tabpillcontent">
+                                <div style=" width: auto;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        
+    align-content: flex-end;">
+                                    <div style="    width: 100%;
+    position: relative;
+    flex-basis: auto;
+    min-height: 1px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;">
+                                        <img src="https://demos.creative-tim.com/nextjs-material-kit/img/examples/studio-1.jpg"
+                                            alt="" style="width: 100%;
+    margin-bottom: 2.142rem;    border-radius: 6px !important;vertical-align: middle;
+    border-style: none;
+">
+                                        <img src="https://demos.creative-tim.com/nextjs-material-kit/img/examples/studio-2.jpg"
+                                            alt="" style="width: 100%;
+margin-bottom: 2.142rem;
+border-radius: 6px !important;
+height: 205px;
+">
+
+                                    </div>
+                                    <div style="    width: 100%;
+    position: relative;
+    flex-basis: auto;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: row;">
+                                        <img src="https://demos.creative-tim.com/nextjs-material-kit/img/examples/studio-5.jpg"
+                                            alt="" style="width: 100%;
+    margin-bottom: 2.142rem;
+    border-radius: 6px !important;
+    vertical-align: middle;
+    border-style: none;
+    height: 205px;">
+                                        <img src="https://demos.creative-tim.com/nextjs-material-kit/img/examples/studio-4.jpg"
+                                            alt="" style="    width: 100%;
+    margin-bottom: 2.142rem;border-radius: 6px !important;    vertical-align: middle;
+    border-style: none;">
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div id="schedule" class="tabpillcontent">
+                                <div style=" width: auto;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        
+    align-content: flex-end;">
+                                    <div style="    width: 100%;
+    position: relative;
+    flex-basis: auto;
+    min-height: 1px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;">
+                                        <img src="https://demos.creative-tim.com/nextjs-material-kit/img/examples/studio-1.jpg"
+                                            alt="" style="width: 100%;
+    margin-bottom: 2.142rem;    border-radius: 6px !important;vertical-align: middle;
+    border-style: none;
+">
+                                        <img src="https://demos.creative-tim.com/nextjs-material-kit/img/examples/studio-5.jpg"
+                                            alt="" style="width: 100%;
+margin-bottom: 2.142rem;
+border-radius: 6px !important;
+height: 205px;
+">
+
+                                    </div>
+                                    <div style="    width: 100%;
+    position: relative;
+    flex-basis: auto;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: row;">
+                                        <img src="https://demos.creative-tim.com/nextjs-material-kit/img/examples/studio-2.jpg"
+                                            alt="" style="width: 100%;
+    margin-bottom: 2.142rem;
+    border-radius: 6px !important;
+    vertical-align: middle;
+    border-style: none;
+    height: 205px;">
+                                        <img src="https://demos.creative-tim.com/nextjs-material-kit/img/examples/studio-4.jpg"
+                                            alt="" style="    width: 100%;
+    margin-bottom: 2.142rem;border-radius: 6px !important;    vertical-align: middle;
+    border-style: none;">
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div id="tasks" class="tabpillcontent">
+                                <div style=" width: auto;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        
+    align-content: flex-end;">
+                                    <div style="    width: 100%;
+    position: relative;
+    flex-basis: auto;
+    min-height: 1px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;">
+                                        <img src="https://demos.creative-tim.com/nextjs-material-kit/img/examples/studio-4.jpg"
+                                            alt="" style="width: 100%;
+    margin-bottom: 2.142rem;    border-radius: 6px !important;vertical-align: middle;
+    border-style: none;
+">
+                                        <img src="https://demos.creative-tim.com/nextjs-material-kit/img/examples/studio-5.jpg"
+                                            alt="" style="width: 100%;
+margin-bottom: 2.142rem;
+border-radius: 6px !important;
+height: 205px;
+">
+
+                                    </div>
+                                    <div style="    width: 100%;
+    position: relative;
+    flex-basis: auto;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: row;">
+                                        <img src="https://demos.creative-tim.com/nextjs-material-kit/img/examples/studio-2.jpg"
+                                            alt="" style="width: 100%;
+    margin-bottom: 2.142rem;
+    border-radius: 6px !important;
+    vertical-align: middle;
+    border-style: none;
+    height: 205px;">
+                                        <img src="https://demos.creative-tim.com/nextjs-material-kit/img/examples/studio-1.jpg"
+                                            alt="" style="    width: 100%;
+    margin-bottom: 2.142rem;border-radius: 6px !important;    vertical-align: middle;
+    border-style: none;">
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div style="display: flex; justify-content: center;">
+        <ul>
+            <div class="hov">
+                <li style="font-size: 11px;
+                padding-top: 4px;
+                font-family: Roboto,Helvetica,Arial,sans-serif;"><a href="#home">CREATIVE TIM</a></li>
+                <li style="font-size: 11px;
+                padding-top: 4px;
+                font-family: Roboto,Helvetica,Arial,sans-serif;"><a href="#news">ABOUT US</a></li>
+                <li style="font-size: 11px;
+                padding-top: 4px;
+                font-family: Roboto,Helvetica,Arial,sans-serif;"><a href="#home">BLOG</a></li>
+                <li style="font-size: 11px;
+                padding-top: 4px;
+                font-family: Roboto,Helvetica,Arial,sans-serif;"><a href="#news">LICENSES</a></li>
+                <li style="    padding-top: 14px;
+                padding-left: 250px;
+   
+    font-family: Roboto,Helvetica,Arial,sans-serif;"><span style="color:rgb(44, 40, 40)">&copy 2023, made with <i
+                            class="fa fa-heart"></i><span style="color:#a44bc9"> by Creative Tim</span> for a better
+                        web.
+                    </span></li>
+
+            </div>
+
+
+
+
+        </ul>
+    </div>
+
+    <script>
+        function openCitypill(evt, Cn) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabpillcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tabpilllinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(Cn).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+
+</body>
+
+</html>
